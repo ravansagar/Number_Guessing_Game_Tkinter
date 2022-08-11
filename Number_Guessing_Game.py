@@ -1,7 +1,7 @@
 from random import randint
 from time import sleep
 from tkinter import *
-import pygame
+from pygame import mixer
 game = Tk()
 game.geometry('500x500')
 game.title("Number Guessing Game")
@@ -14,10 +14,10 @@ def win():
 input_number = IntVar()
 count = 0
 
-pygame.mixer.init()
-wrong = pygame.mixer.Sound('wrong.wav')
-right = pygame.mixer.Sound('right.wav')
-button = pygame.mixer.Sound('button.wav')
+mixer.init()
+wrong = mixer.Sound('wrong.wav')
+right = mixer.Sound('right.wav')
+button = mixer.Sound('button.wav')
 #printing labels
 def play():
     button.play()
@@ -44,9 +44,9 @@ def play():
         count = 0
         replay_btn.after(0, lambda: replay_btn.destroy())
         input_number.initialize(1)
-        msg1_hide = Label(game, text='                                                   ',bg='blue',font=('Times New Roman', 25, 'bold'))
+        msg1_hide = Label(game, text='                                                   ',bg='blue')
         msg1_hide.place(x=155,y=260)
-        msg2_hide = Label(game, text='                                                   ',bg='blue',font=('Times New Roman', 25, 'bold'))
+        msg2_hide = Label(game, text='                                                   ',bg='blue')
         msg2_hide.place(x=50,y=300)
         play()
     replay_btn = Button(game, text='Replay', command=replay, font=('Times New Roman', 25, 'bold'))
@@ -110,6 +110,8 @@ def play():
     submit = Button(game,text='ENTER', command=check,borderwidth=0,font=('Times New Roman', 25, 'bold'))
     submit.place(x=180,y=210)
     submit.place_configure(bordermode='inside',height=40,width=120)
+    game.bind<'<Return>',lambda event:check())
+    gane.bind<'
 ##########################################################################
 def exit():
     button.play()
