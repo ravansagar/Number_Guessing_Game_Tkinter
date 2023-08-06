@@ -8,12 +8,10 @@ game.title("Number Guessing Game")
 game.config(bg='blue',height=500,width=500)
 #craeting variables
 def win():
-    winning_number = randint(1,100)
-    print(winning_number)
+    winning_number = randint(1,100) 
     return winning_number
 input_number = IntVar()
 count = 0
-
 mixer.init()
 wrong = mixer.Sound('wrong.wav')
 right = mixer.Sound('right.wav')
@@ -30,12 +28,10 @@ def play():
     input_msg.place(x=85,y=70)
     low = Label(game, text='Too low guess high\n',fg='red',bg='blue',font=('Times New Roman', 25, 'bold'))
     high = Label(game, text='Too high guess low\n',fg='red',bg='blue',font=('Times New Roman', 25, 'bold'))
-  # winning_msg = Label(game, text=f'You Won!!!\nYou guessed it on {countt} attempts', fg='#05fc05',bg='blue',font=('Times New Roman', 25, 'bold'))
-#taking input
+  #taking input
     get_number = Entry(game, width=3, textvariable=input_number, foreground='red', bg='#ffffff', font=('Times New Roman', 30, 'bold'))
     get_number.focus()
     get_number.place(x=210,y=140)
-   # winning_msg=Label(game, text='You Won!!!\n')
     def replay():
         button.play()
         sleep(1)
