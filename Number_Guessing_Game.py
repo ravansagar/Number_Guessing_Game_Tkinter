@@ -106,8 +106,7 @@ def play():
     submit = Button(game,text='ENTER', command=check,borderwidth=0,font=('Times New Roman', 25, 'bold'))
     submit.place(x=180,y=210)
     submit.place_configure(bordermode='inside',height=40,width=120)
-    game.bind<'<Return>',lambda event:check())
-    gane.bind<'
+    game.bind('<Return>',lambda event:check())
 ##########################################################################
 def exit():
     button.play()
